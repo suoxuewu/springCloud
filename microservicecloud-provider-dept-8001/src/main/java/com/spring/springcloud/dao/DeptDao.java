@@ -13,5 +13,6 @@ public interface DeptDao
 
     public List<Dept> findAll();
 
+    public int delete();
     //  microservicecloud-eureka-7001
 }

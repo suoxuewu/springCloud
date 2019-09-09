@@ -15,5 +15,6 @@ public interface DeptDao
 
     public int update(Dept dept);
 
+    public int delete();
     //  microservicecloud-eureka-7001
 }

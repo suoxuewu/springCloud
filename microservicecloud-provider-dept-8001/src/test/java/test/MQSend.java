@@ -1,5 +1,6 @@
+package test;
+
 import com.ibm.mq.*;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.io.FileInputStream;
 import java.io.InputStream;

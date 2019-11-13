@@ -15,9 +15,19 @@ public class DeptController_Consumer {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String
-            REST_URL_PRIFIX = "http://localhost:8001";
+//    private static final String
+//            REST_URL_PRIFIX = "http://localhost:8001";
 
+    //Ribbon和Eureka整合后，消费者不用关心具体的端口和地址，
+    //只要关心服务名
+    private static final String
+            REST_URL_PRIFIX ="http://MICROSERVICECLOUD-DEPT";
+    ////测试@EnableDiscoveryClient,消费端可以调用服务发现
+    @RequestMapping(value = "/consumer/dept/discovery")
+    public Object discovery(){
+        return restTemplate.getForObject(
+       REST_URL_PRIFIX+"/dept/discovery",Object.class);
+    }
 
     /**
      * 使用restTemplate访问restful接口非常的简单粗暴无脑。
@@ -40,5 +50,7 @@ public class DeptController_Consumer {
     public List<Dept> list(){
         return restTemplate.getForObject(REST_URL_PRIFIX+"/dept/list",List.class);
     }
+
+
 
 }

@@ -1,4 +1,4 @@
-package com.spring.springcloud.controller;
+package com.spring.springcloud;
 
 import com.spring.springcloud.entities.Dept;
 import org.springframework.beans.factory.annotation.Autowired;

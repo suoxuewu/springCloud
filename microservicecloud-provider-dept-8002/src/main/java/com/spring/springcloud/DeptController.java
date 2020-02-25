@@ -1,6 +1,5 @@
-package com.spring.springcloud.controller;
+package com.spring.springcloud;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.spring.springcloud.entities.Dept;
 import com.spring.springcloud.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,25 +35,9 @@ public class DeptController {
     public boolean add(@RequestBody Dept dept){
         return deptService.add(dept);
     }
-
-
     @RequestMapping(value = "/dept/get/{id}")
-    @HystrixCommand(fallbackMethod = "processHystrix_Get")
     public Dept get(@PathVariable Long id){
-        Dept dept = this.deptService.get(id);
-        if(null == dept){
-            System.out.println("跑到异常里面了");
-            throw new RuntimeException("该id"+id+"没有对应的信息，null--@HystrixCommand");
-        }
-        return dept;
-    }
-
-    public Dept processHystrix_Get(@PathVariable("id") Long id){
-        Dept dept = new Dept();
-        dept.setDeptno(id);
-        dept.setDname("该id"+id+"没有对应的信息，null--@HystrixCommand");
-        dept.setDb_source("");
-        return dept;
+        return deptService.get(id);
     }
 
     @RequestMapping(value = "/dept/list")

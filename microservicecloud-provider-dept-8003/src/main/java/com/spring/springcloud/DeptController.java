@@ -1,8 +1,7 @@
-package com.spring.springcloud.controller;
+package com.spring.springcloud;
 
 import com.spring.springcloud.entities.Dept;
 import com.spring.springcloud.service.DeptService;
-import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
